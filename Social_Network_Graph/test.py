@@ -9,5 +9,4 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn import linear_model
 
 
-list = [1,2,3,4]
-print str(list)
+print int(32/19)

@@ -139,7 +139,7 @@ def mainFunctionD2( Ad, vertex_num, edge_num, nodes_G, iter_times, group):
     s.append(iter_times)
     with open("/home/a/PycharmProjects/TestZhu/tjufe_1/Social_Network_Graph/output_group/out.txt","a") as f:
         f.write(str(s)+"\n")
-        f.closed
+        f.closed()
     nodes_G = np.transpose(nodes_G)
 
 
@@ -149,11 +149,34 @@ def mainFunctionD2( Ad, vertex_num, edge_num, nodes_G, iter_times, group):
 
 
 
-    result_list_of_Divide2 = D
 
-
-
-
+    # result_list_of_Divide2 = Divide2(Ad,nodes_G,ncV)
+    # G1 = result_list_of_Divide2[0]
+    # G2 = result_list_of_Divide2[1]
+    # nodes_G1 = result_list_of_Divide2[2]
+    # nodes_G2 = result_list_of_Divide2[3]
+    #
+    # vertex_num_of_G1 = len(G1)
+    # edge_num_of_G1 = 0
+    # for each in G1:
+    #     if(each == 1):
+    #         edge_num_of_G1 = edge_num_of_G1 + 1
+    # edge_num_of_G1 = edge_num_of_G1/2
+    #
+    # vertex_num_of_G2 = len(G2)
+    # edge_num_of_G2 = 0
+    # for each in G2:
+    #     if(each == 1):
+    #         edge_num_of_G2 = edge_num_of_G2 + 1
+    # edge_num_of_G2 = edge_num_of_G2/2
+    # #参数group可能有问题吧
+    # mainFunctionD2(G1,vertex_num_of_G1,edge_num_of_G1,nodes_G1,iter_times+1,"1")
+    # mainFunctionD2(G2,vertex_num_of_G2,edge_num_of_G2,nodes_G2,iter_times+1,"2")
+    #
+    #
+    #
+    #
+    #
 
 
 
