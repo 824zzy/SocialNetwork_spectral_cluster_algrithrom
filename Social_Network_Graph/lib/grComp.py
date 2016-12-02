@@ -20,5 +20,11 @@ def gr_comp(E, n):
     Dec = result_data2[0]
     Ord = result_data2[1]
 
-    #ncV =
-    return
+    diag_list = []
+    for each in range(Dec.shape[1]):
+        diag_list.append(each+1)
+    diag = np.diag(diag_list)
+    temp = np.dot(Dec, diag)
+    ncV = np.sum(temp , 1)
+    transposed_ncV = np.transpose(ncV)
+    return transposed_ncV

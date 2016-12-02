@@ -16,7 +16,7 @@ def mainFunctionD2( Ad, vertex_num, edge_num, nodes_G, iter_times, group):
     s = []
     s.append(vertex_num)
     if (vertex_num == 3 or edge_num < 5 or iter_times > 4 ):
-        print "something strange in mainfuntiond2"
+        print "success!"
         return
     iter=1
     tic()
@@ -138,9 +138,7 @@ def mainFunctionD2( Ad, vertex_num, edge_num, nodes_G, iter_times, group):
     s.append(group)
     s.append(iter_times)
     with open("/home/a/PycharmProjects/TestZhu/tjufe_1/Social_Network_Graph/output_group/out.txt","a") as f:
-        f.write(str(s)+"\n")
-        f.closed
-    nodes_G = np.transpose(nodes_G)
+        f.write(str(s) + str(nodes_G) + " "+ str(ncV)+"\n")
 
 
 
@@ -149,7 +147,46 @@ def mainFunctionD2( Ad, vertex_num, edge_num, nodes_G, iter_times, group):
 
 
 
-    result_list_of_Divide2 = D
+
+    result_list_of_Divide2 = Divide2(Ad,nodes_G,ncV)
+    G1 = result_list_of_Divide2[0]
+    G2 = result_list_of_Divide2[1]
+
+    nodes_G1 = result_list_of_Divide2[2]
+    nodes_G2 = result_list_of_Divide2[3]
+
+    vertex_num_of_G1 = G1.shape[0]
+    edge_num_of_G1 = 0
+    for i in range(G1.shape[0]):
+        for j in range(G1.shape[1]):
+            if G1[i][j] == 1 :
+                edge_num_of_G1 = edge_num_of_G1 + 1
+    edge_num_of_G1 = edge_num_of_G1 / 2
+
+
+    edge_num_of_G2 = 0
+    vertex_num_of_G2 = G2.shape[0]
+    for i in range(G2.shape[0]):
+        for j in range(G2.shape[1]):
+            if G2[i][j] == 1 :
+                edge_num_of_G2 = edge_num_of_G2 + 1
+    edge_num_of_G2 = edge_num_of_G2 / 2
+    print "划分第一社区"
+    print G1
+    print "划分第二社区"
+    print G2
+    print "G1节点数"
+    print vertex_num_of_G1
+    print "G2节点数"
+    print vertex_num_of_G2
+    print "G1边数"
+    print edge_num_of_G1
+    print "G2边数"
+    print edge_num_of_G2
+    #参数group可能有问题吧
+    mainFunctionD2(G1,vertex_num_of_G1,edge_num_of_G1,nodes_G1,iter_times+1,"1")
+    mainFunctionD2(G2,vertex_num_of_G2,edge_num_of_G2,nodes_G2,iter_times+1,"2")
+
 
 
 
